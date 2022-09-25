@@ -125,7 +125,8 @@ alias ls='exa'
 alias lsi='exa --icons'
 alias ll='exa -lh --icons'
 alias la='exa -a'
-alias gls='exa --git-ignore --icons'
+alias lstrack='exa -a --git-ignore'
+alias lsgit='exa -lah --icons --git'
 alias grep='grep --color=auto'
 #alias fd='fdfind'
 #alias bat='batcat'
@@ -152,4 +153,24 @@ eval "$(zoxide init zsh)"
 # thefuck
 eval $(thefuck --alias)
 
+# google-translate-cli
+alias en2zh='translate -s en -t zh-cn'
+alias zh2en='translate -s zh-cn -t en'
+
 if [ -e /home/sorashu/.nix-profile/etc/profile.d/nix.sh ]; then . /home/sorashu/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/sorashu/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/sorashu/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/sorashu/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/sorashu/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
