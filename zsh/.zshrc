@@ -57,8 +57,8 @@ zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
 
 # zsh-nix-shell
-zinit ice lucid wait='0'
-zinit light chisui/zsh-nix-shell
+#zinit ice lucid wait='0'
+#zinit light chisui/zsh-nix-shell
 
 # completion for docker
 zinit wait="1" lucid as="completion" for \
@@ -67,7 +67,7 @@ zinit wait="1" lucid as="completion" for \
 
 # completion for new *nix tools!
 # zsh install by git
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 zinit ice mv="*.zsh -> _fzf" as="completion"
 zinit snippet 'https://github.com/junegunn/fzf/blob/master/shell/completion.zsh'
 zinit snippet 'https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh'
@@ -119,6 +119,8 @@ export PATH="$PATH:/opt/riscv-toolchain/bin"
 export PATH="$PATH:/opt/riscv-qemu/bin"
 
 # ================================================
+
+export EDITOR="vim"
 
 # alias
 alias ls='exa'
