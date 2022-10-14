@@ -115,9 +115,6 @@ gpg-login() {
 export PATH="$HOME/app/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$PATH:/opt/riscv-toolchain/bin"
-export PATH="$PATH:/opt/riscv-qemu/bin"
-
 # ================================================
 
 export EDITOR="vim"
@@ -134,11 +131,11 @@ alias grep='grep --color=auto'
 #alias bat='batcat'
 #alias x='atool -x'
 
-
 # xopen alias
 open () {
     xdg-open $1 > /dev/null 2>&1
 }
+
 
 # docker alias
 alias dcu="docker compose up"
@@ -146,7 +143,7 @@ alias dcud="docker compose up -d"
 alias dcd="docker compose down"
 
 # git alias
-alias gall="git add ."
+alias gaa="git add --all"
 
 # vimlike exit
 alias :wq="exit"
