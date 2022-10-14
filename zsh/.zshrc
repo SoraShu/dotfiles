@@ -99,9 +99,9 @@ zinit cdreplay -q
 
 export FZF_DEFAULT_COMMAND='fd --type f'
 
-export LANG=en_US.UTF-8
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+#export LANG=en_US.UTF-8
+#export LC_CTYPE=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
 
 
 gpg-login() {
@@ -136,7 +136,9 @@ alias grep='grep --color=auto'
 
 
 # xopen alias
-alias open="xdg-open"
+open () {
+    xdg-open $1 > /dev/null 2>&1
+}
 
 # docker alias
 alias dcu="docker compose up"
@@ -159,20 +161,5 @@ eval $(thefuck --alias)
 alias en2zh='translate -s en -t zh-cn'
 alias zh2en='translate -s zh-cn -t en'
 
-if [ -e /home/sorashu/.nix-profile/etc/profile.d/nix.sh ]; then . /home/sorashu/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/sorashu/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/sorashu/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/sorashu/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/sorashu/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+# custom
+[[ ! -f ~/.config/zsh/custom.zsh ]] || source ~/.p10k.zsh
