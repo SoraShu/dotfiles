@@ -159,4 +159,4 @@ alias en2zh='translate -s en -t zh-cn'
 alias zh2en='translate -s zh-cn -t en'
 
 # custom
-[[ ! -f ~/.config/zsh/custom.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.config/zsh/custom.zsh ]] || source ~/.config/zsh/custom.zsh
