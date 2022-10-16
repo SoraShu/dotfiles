@@ -7,6 +7,7 @@ map("v", "<leader>x", "\"+", {})
 
 map("n", "<C-/>", ":noh<CR>", {silent = true})
 
+
 local hop = require('hop')
 local dirs = require('hop.hint').HintDirection
 
@@ -38,3 +39,8 @@ map("", "<leader>T", function()
     hop.hint_char1({ direction = dirs.BEFORE_CURSOR, hint_offset = -1, current_line_only = true })
 end, {})
 
+map("n", "[b", ":BufferLineCyclePrev<CR>", {noremap = true, silent = true})
+map("n", "]b", ":BufferLineCycleNext<CR>", {noremap = true, silent = true})
+
+map("n", "<leader>bp", ":BufferLinePick<CR>", {noremap = true, silent = true}) 
+map("n", "<leader>bc", ":BufferLinePickClose<CR>", {noremap = true, silent = true}) 

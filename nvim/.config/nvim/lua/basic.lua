@@ -54,3 +54,10 @@ require('lualine').setup {
     theme = 'nord'
   }
 }
+vim.opt.termguicolors = true
+require("bufferline").setup{
+    options = {
+        mode = "buffer",
+        numbers="ordinal"
+    }
+}

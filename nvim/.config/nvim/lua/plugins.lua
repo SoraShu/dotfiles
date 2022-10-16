@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-    
+
     use {
       'phaazon/hop.nvim',
       branch = 'v2',
@@ -15,6 +15,8 @@ return require('packer').startup(function(use)
         require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
       end
     }
+
+    use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 
 end)
 
