@@ -5,7 +5,7 @@
 syntax on
 
 set nocompatible
-set number
+set relativenumber
 set showmode
 set showcmd
 set mouse=i
