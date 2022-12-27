@@ -117,7 +117,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 # ================================================
 
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # alias
 alias ls='exa'
@@ -133,7 +133,7 @@ alias grep='grep --color=auto'
 
 # xopen alias
 open () {
-    xdg-open $1 > /dev/null 2>&1
+    xdg-open $1 > /dev/null 2>&1 &
 }
 
 
