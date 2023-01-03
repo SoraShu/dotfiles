@@ -51,7 +51,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 # suggest and complete history commands 
 zinit ice lucid wait='0' atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
-#bindkey '^_' autosuggest-accept
+bindkey '^_' autosuggest-accept
 
 zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
@@ -61,7 +61,7 @@ zinit light zsh-users/zsh-completions
 #zinit light chisui/zsh-nix-shell
 
 # completion for docker
-zinit wait="1" lucid as="completion" for \
+zinit wait="0" lucid as="completion" for \
   OMZ::plugins/docker/_docker \
   OMZ::plugins/docker-compose/_docker-compose 
 
@@ -77,6 +77,7 @@ zinit ice as="completion"
 zinit snippet 'https://github.com/ogham/exa/blob/master/completions/zsh/_exa'
 
 # fast syntax highlighting
+zinit ice lucid wait='1'
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 # use Alt+S to quickly add sudo
@@ -88,11 +89,13 @@ bindkey '^[s' sudo-command-line
 # zinit light skywind3000/z.lua
 
 # tab using fzf
-#zinit light Aloxaf/fzf-tab
+zinit ice lucid wait='1'
+zinit light Aloxaf/fzf-tab
 
 # Enable auto completion
 autoload -Uz compinit; compinit
 zinit cdreplay -q
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -118,6 +121,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # ================================================
 
 export EDITOR="nvim"
+alias vim="nvim"
 
 # alias
 alias ls='exa'
@@ -144,6 +148,10 @@ alias dcd="docker compose down"
 
 # git alias
 alias gaa="git add --all"
+alias gc="git commit -v"
+alias gca="git commit --amend"
+alias gst="git status"
+
 
 # vimlike exit
 alias :wq="exit"
