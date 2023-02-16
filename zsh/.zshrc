@@ -117,7 +117,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 # ================================================
 
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # alias
 alias ls='exa'

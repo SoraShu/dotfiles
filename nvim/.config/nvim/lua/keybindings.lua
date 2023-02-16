@@ -5,7 +5,7 @@ vim.g.maplocalleader = " "
 map("n", "<leader>x", "\"+", {})
 map("v", "<leader>x", "\"+", {})
 
-map("n", "<C-/>", ":noh<CR>", {silent = true})
+map("n", "<leader><C-/>", ":noh<CR>", {silent = true})
 
 
 local hop = require('hop')
