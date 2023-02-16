@@ -52,12 +52,17 @@ require('nord').set()
 require('lualine').setup {
   options = {
     theme = 'nord'
+  },
+
+  tabline = {
+    lualine_a = {'buffers'},
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {'tabs'}
   }
+
 }
 vim.opt.termguicolors = true
-require("bufferline").setup{
-    options = {
-        mode = "buffer",
-        numbers="ordinal"
-    }
-}
+

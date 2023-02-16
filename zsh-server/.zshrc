@@ -38,7 +38,7 @@ zinit light-mode for \
 # Plugins
 
 # Some zsh libraries
-zinit snippet OMZ::lib/clipboard.zsh
+#zinit snippet OMZ::lib/clipboard.zsh
 zinit snippet OMZ::lib/completion.zsh
 zinit snippet OMZ::lib/history.zsh
 zinit snippet OMZ::lib/key-bindings.zsh
@@ -51,7 +51,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 # suggest and complete history commands 
 zinit ice lucid wait='0' atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
-bindkey '^_' autosuggest-accept
+#bindkey '^_' autosuggest-accept
 
 zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
@@ -61,41 +61,40 @@ zinit light zsh-users/zsh-completions
 #zinit light chisui/zsh-nix-shell
 
 # completion for docker
-zinit wait="0" lucid as="completion" for \
+zinit wait="1" lucid as="completion" for \
   OMZ::plugins/docker/_docker \
   OMZ::plugins/docker-compose/_docker-compose 
 
 # completion for new *nix tools!
 # zsh install by git
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-zinit ice mv="*.zsh -> _fzf" as="completion"
-zinit snippet 'https://github.com/junegunn/fzf/blob/master/shell/completion.zsh'
-zinit snippet 'https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh'
+#zinit ice mv="*.zsh -> _fzf" as="completion"
+#zinit snippet 'https://github.com/junegunn/fzf/blob/master/shell/completion.zsh'
+#zinit snippet 'https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh'
+zinit pack"binary+keys" for fzf
+
 zinit ice as="completion"
 zinit snippet 'https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/fd/_fd'
 zinit ice as="completion"
 zinit snippet 'https://github.com/ogham/exa/blob/master/completions/zsh/_exa'
 
 # fast syntax highlighting
-zinit ice lucid wait='1'
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 # use Alt+S to quickly add sudo
 zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
-bindkey '^[s' sudo-command-line
+#bindkey '^[s' sudo-command-line
 
 # quick path jump by `z <keywords>...`
 # zinit ice lucid wait='1'
 # zinit light skywind3000/z.lua
 
 # tab using fzf
-zinit ice lucid wait='1'
-zinit light Aloxaf/fzf-tab
+#zinit light Aloxaf/fzf-tab
 
 # Enable auto completion
 autoload -Uz compinit; compinit
 zinit cdreplay -q
-
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -120,8 +119,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 # ================================================
 
-export EDITOR="nvim"
-alias vim="nvim"
+export EDITOR="vim"
 
 # alias
 alias ls='exa'
@@ -131,7 +129,7 @@ alias la='exa -a'
 alias lstrack='exa -a --git-ignore'
 alias lsgit='exa -lah --icons --git'
 alias grep='grep --color=auto'
-#alias fd='fdfind'
+alias fd='fdfind'
 #alias bat='batcat'
 #alias x='atool -x'
 
@@ -148,23 +146,10 @@ alias dcd="docker compose down"
 
 # git alias
 alias gaa="git add --all"
-alias gc="git commit -v"
-alias gca="git commit --amend"
-alias gst="git status"
-
 
 # vimlike exit
 alias :wq="exit"
 alias :q="exit"
-
-# zoxide
-eval "$(zoxide init zsh)"
-# thefuck
-eval $(thefuck --alias)
-
-# google-translate-cli
-alias en2zh='translate -s en -t zh-cn'
-alias zh2en='translate -s zh-cn -t en'
 
 # custom
 [[ ! -f ~/.config/zsh/custom.zsh ]] || source ~/.config/zsh/custom.zsh
