@@ -1,4 +1,7 @@
+require('autocmd')
 require('basic')
 require('keybindings')
-require('autocmd')
+
 require('plugins')
+
+require('load')

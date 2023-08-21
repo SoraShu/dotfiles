@@ -1,31 +1,32 @@
-return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
+---- bootstrap lazy.nvim ----
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-    use 'shaunsingh/nord.nvim'
 
-    use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
+if not vim.g.vscode then
+    require("lazy").setup({
+        {import = "plugspec"}
+    })
+else
+    require("lazy").setup({
+        {import = 'plugspec.hop'}
+    })
+end
 
-    use {
-      'phaazon/hop.nvim',
-      branch = 'v2',
-      config = function()
-        require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-      end
-    }
 
-    use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-
-    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-      require("toggleterm").setup()
-    end}
-
-    --use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
-
-end)
-
+--   require('config.nord'),
+--   require('config.lualine'),
+--   require('config.bufferline'),
+--   require('config.hop'),
+--   require('config.telescope'),
+--   require('config.toggleterm'),
